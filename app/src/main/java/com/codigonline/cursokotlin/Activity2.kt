@@ -9,9 +9,5 @@ class Activity2 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_2)
-        //Recibir el contenido enviado desde el MainActivity
-        val extra = intent.extras!!
-        val user = extra.get("idusuario")
-        Log.d(TAG, user.toString())
     }
 }

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Curso 2021 Android Kotlin</string>
+    <string name="forgot_password">ass</string>
+    <string name="main_registro">sss</string>
+    <string name="main_password">s</string>
+    <string name="main_username">s</string>
+    <string name="main_login">ss</string>
+    <string name="error_blank_password">s</string>
+    <string name="error_blank_username">ss</string>
+</resources>

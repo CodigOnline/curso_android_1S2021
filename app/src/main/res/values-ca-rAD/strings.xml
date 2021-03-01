@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Curs 2021 Android Kotlin</string>
+    <string name="forgot_password">¿Has oblidat la teva contrasenya?</string>
+    <string name="main_registro">¡Registra\'t!</string>
+    <string name="main_password">Contrasenya</string>
+    <string name="main_username">Nom d\'usuari</string>
+    <string name="main_login">¡Iniciar sessió!</string>
+    <string name="error_blank_password">¡La contrasenya not pot estar buida!</string>
+    <string name="error_blank_username">¡El nom d\'usuario no pot estar buit!</string>
+</resources>

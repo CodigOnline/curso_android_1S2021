@@ -22,5 +22,5 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="Base.MaterialThemeBuilder" parent="Theme.MaterialComponents.DayNight.DarkActionBar"></style>
+    <style name="Base.MaterialThemeBuilder" parent="Theme.MaterialComponents.DayNight.NoActionBar"></style>
 </resources>

@@ -7,81 +7,128 @@
     tools:context=".MainActivity">
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/main_guide10"
+        android:id="@+id/main_Vguide10"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.1" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/main_guide90"
+        android:id="@+id/main_Vguide90"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.9" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/main_Hguide90"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.9" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/main_olvidar_password"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/main_Hguide90"
+        app:layout_constraintStart_toEndOf="@id/main_Vguide10"
+        app:layout_constraintEnd_toStartOf="@id/main_Vguide90"
+        android:text="@string/forgot_password"
+        />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/main_btn_registro"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/main_Vguide10"
+        app:layout_constraintEnd_toStartOf="@id/main_Vguide90"
+        app:layout_constraintBottom_toTopOf="@id/main_olvidar_password"
+        android:text="@string/main_registro"
+        app:icon="@drawable/ic_baseline_person_add_alt_1_24"
+        app:cornerRadius="15dp"
+        app:strokeColor="@color/color_secondary"
+        app:strokeWidth="2dp"
+        android:layout_marginBottom="15dp"
+
+        />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/main_btn_login"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/main_Vguide10"
+        app:layout_constraintEnd_toStartOf="@id/main_Vguide90"
+        app:layout_constraintBottom_toTopOf="@id/main_btn_registro"
+        android:text="@string/main_login"
+        app:icon="@drawable/ic_baseline_login_24"
+        app:cornerRadius="15dp"
+        app:strokeColor="@color/color_secondary"
+        app:strokeWidth="2dp"
+        android:layout_marginBottom="15dp"
+        />
 
     <com.google.android.material.textfield.TextInputLayout
-
-        android:id="@+id/textView"
+        android:id="@+id/main_til_password"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:hint="Nombre de usuario"
+        app:layout_constraintStart_toEndOf="@id/main_Vguide10"
+        app:layout_constraintEnd_toStartOf="@id/main_Vguide90"
+        app:layout_constraintBottom_toTopOf="@id/main_btn_login"
+        android:hint="@string/main_password"
+        app:errorEnabled="true"
+        android:layout_marginBottom="30dp"
         app:endIconMode="password_toggle"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
+        app:boxStrokeWidth="2dp"
+        app:cornerRadius="15dp"
+        app:boxStrokeColor="@color/color_secondary"
+        app:hintTextColor="@color/color_secondary"
+        >
+       <com.google.android.material.textfield.TextInputEditText
+           android:id="@+id/main_tie_password"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:inputType="textPassword"
+           />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="Nombre de usuario"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.26999998" />
-
-    <LinearLayout
-        android:layout_margin="10dp"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/main_til_username"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/main_Vguide10"
+        app:layout_constraintEnd_toStartOf="@id/main_Vguide90"
+        app:layout_constraintBottom_toTopOf="@id/main_til_password"
+        android:hint="@string/main_username"
+        android:layout_marginBottom="15dp"
+        app:endIconMode="clear_text"
+        app:boxStrokeWidth="2dp"
+        app:cornerRadius="15dp"
+        app:boxStrokeColor="@color/color_secondary"
+        app:hintTextColor="@color/color_secondary"
+        >
+       <com.google.android.material.textfield.TextInputEditText
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:inputType="textPersonName"
+           />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:padding="10dp"
+        android:id="@+id/main_profile_image"
         android:layout_height="0dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@id/main_guide10"
-        app:layout_constraintEnd_toStartOf="@id/main_guide90"
-        app:layout_constraintTop_toBottomOf="@id/textView">
+        android:layout_width="0dp"
+        app:civ_border_width="2dp"
+        android:src="@mipmap/ic_codigonline"
+        app:civ_border_color="@color/color_secondary"
+        app:layout_constraintStart_toEndOf="@id/main_Vguide10"
+        app:layout_constraintEnd_toStartOf="@id/main_Vguide90"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/main_til_username"
 
-        <com.google.android.material.button.MaterialButton
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cornerRadius="25dp"
-            app:strokeColor="@color/black"
-            android:text="Button1"
-            android:textAllCaps="true"
-            app:strokeWidth="2dp"/>
-
-        <com.google.android.material.button.MaterialButton
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <com.google.android.material.button.MaterialButton
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <com.google.android.material.button.MaterialButton
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
-
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
