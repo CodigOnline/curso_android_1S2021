@@ -1,4 +1,24 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- SplashScreen -->
+    <style name="Splash" parent="Base.MyTheme">
+        <item name="android:windowBackground">@drawable/splash_screen</item>
+
+        <!-- Status bar -->
+        <item name="android:statusBarColor">@color/transparent</item>
+        <!-- Booleano false si el fondo es oscuro o true si el fondo es claro-->
+
+
+        <!-- DIVIDER-->
+        <item name="android:navigationBarDividerColor">@color/color_secondary</item>
+        <!-- Navigation bar -->
+        <item name="android:navigationBarColor">@color/transparent</item>
+
+
+          <!--<item name="android:windowLightStatusBar">true</item>-->
+        <item name="android:windowLightNavigationBar">true</item>-->
+    </style>
+
     <!-- Base application theme. -->
     <style name="Base.MyTheme" parent="Base.MaterialThemeBuilder">
         <!-- Primary brand color. -->
@@ -20,6 +40,10 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+
+        <!-- Transitions -->
+        <item name="android:windowEnterTransition">@transition/fade_in</item>
+        <item name="android:windowExitTransition">@transition/slide_end</item>
     </style>
 
     <style name="Base.MaterialThemeBuilder" parent="Theme.MaterialComponents.DayNight.NoActionBar"></style>
