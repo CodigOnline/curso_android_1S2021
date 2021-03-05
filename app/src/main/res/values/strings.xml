@@ -3,7 +3,7 @@
     <string name="forgot_password">¿Has olvidado la contraseña?</string>
     <string name="main_registro">¡Registrate!</string>
     <string name="main_password">Contraseña</string>
-    <string name="main_username">Nombre de usuario</string>
+    <string name="main_username">Correo electronico</string>
     <string name="main_login">¡Iniciar sesión!</string>
     <string name="error_blank_password">¡La contraseña no puede estar vacia!</string>
     <string name="error_blank_username">¡El usuario no puede estar vacio!</string>

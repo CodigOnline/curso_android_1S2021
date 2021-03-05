@@ -89,16 +89,16 @@
         app:boxStrokeColor="@color/color_secondary"
         app:hintTextColor="@color/color_secondary"
         >
-       <com.google.android.material.textfield.TextInputEditText
-           android:id="@+id/main_tie_password"
-           android:layout_width="match_parent"
-           android:layout_height="match_parent"
-           android:inputType="textPassword"
-           />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/main_tie_password"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="textPassword"
+            />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/main_til_username"
+        android:id="@+id/main_til_email"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -113,11 +113,12 @@
         app:boxStrokeColor="@color/color_secondary"
         app:hintTextColor="@color/color_secondary"
         >
-       <com.google.android.material.textfield.TextInputEditText
-           android:layout_width="match_parent"
-           android:layout_height="match_parent"
-           android:inputType="textPersonName"
-           />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/main_tie_email"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="textPersonName"
+            />
     </com.google.android.material.textfield.TextInputLayout>
 
     <de.hdodenhof.circleimageview.CircleImageView
@@ -131,7 +132,7 @@
         app:layout_constraintStart_toEndOf="@id/main_Vguide10"
         app:layout_constraintEnd_toStartOf="@id/main_Vguide90"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/main_til_username"
+        app:layout_constraintBottom_toTopOf="@id/main_til_email"
 
         />
 

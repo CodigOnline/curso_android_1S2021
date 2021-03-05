@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegistroActivity">
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/registro_guideH9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.9" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/registro_guideV9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/registro_guideV1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <LinearLayout
+        android:id="@+id/llbuttons"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/registro_guideH9"
+        app:layout_constraintEnd_toStartOf="@id/registro_guideV9"
+        app:layout_constraintStart_toEndOf="@id/registro_guideV1">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/registro_btn_cancelar"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:layout_weight="1"
+            android:padding="3dp"
+            android:text="Cancelar"
+            app:cornerRadius="15dp"
+            app:strokeColor="@color/color_secondary"
+            app:strokeWidth="2dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/registro_btn_registrar"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:layout_weight="1"
+            android:padding="3dp"
+            android:text="Registrar"
+            app:cornerRadius="15dp"
+            app:strokeColor="@color/color_secondary"
+            app:strokeWidth="2dp" />
+    </LinearLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/registro_repetir_password"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:hint="Repita la contraseña"
+        app:boxStrokeColor="@color/color_secondary"
+        app:boxStrokeWidth="2dp"
+        app:cornerRadius="15dp"
+        app:endIconMode="password_toggle"
+        app:errorEnabled="true"
+        app:hintTextColor="@color/color_secondary"
+        app:layout_constraintBottom_toTopOf="@id/llbuttons"
+        app:layout_constraintEnd_toStartOf="@id/registro_guideV9"
+        app:layout_constraintStart_toEndOf="@id/registro_guideV1">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/registro_tie_pass2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:imeOptions="actionDone"
+            android:inputType="textPassword" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/registro_password"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:hint="Introduzca la contraseña"
+        app:boxStrokeColor="@color/color_secondary"
+        app:boxStrokeWidth="2dp"
+        app:cornerRadius="15dp"
+        app:endIconMode="password_toggle"
+        app:errorEnabled="true"
+        app:hintTextColor="@color/color_secondary"
+        app:layout_constraintBottom_toTopOf="@id/registro_repetir_password"
+        app:layout_constraintEnd_toStartOf="@id/registro_guideV9"
+        app:layout_constraintStart_toEndOf="@id/registro_guideV1">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/registro_tie_pass1"
+            android:layout_width="match_parent"
+
+            android:imeOptions="actionNext"
+            android:nextFocusDown="@id/registro_tie_pass2"
+            android:layout_height="match_parent"
+            android:inputType="textPassword" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/registro_email"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:hint="Introduzca el email"
+        app:boxStrokeColor="@color/color_secondary"
+        app:boxStrokeWidth="2dp"
+        app:cornerRadius="15dp"
+        app:endIconMode="clear_text"
+        app:errorEnabled="true"
+        app:hintTextColor="@color/color_secondary"
+        app:layout_constraintBottom_toTopOf="@id/registro_password"
+        app:layout_constraintEnd_toStartOf="@id/registro_guideV9"
+        app:layout_constraintStart_toEndOf="@id/registro_guideV1">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/registro_tie_mail"
+            android:layout_width="match_parent"
+
+            android:imeOptions="actionNext"
+            android:nextFocusDown="@id/registro_tie_pass1"
+            android:layout_height="match_parent"
+            android:inputType="textEmailAddress" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/registro_nombre"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:hint="Introduzca el nombre"
+        app:boxStrokeColor="@color/color_secondary"
+        app:boxStrokeWidth="2dp"
+        app:cornerRadius="15dp"
+        app:endIconMode="clear_text"
+        app:errorEnabled="true"
+        app:hintTextColor="@color/color_secondary"
+        app:layout_constraintBottom_toTopOf="@id/registro_email"
+        app:layout_constraintEnd_toStartOf="@id/registro_guideV9"
+        app:layout_constraintStart_toEndOf="@id/registro_guideV1">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/registro_tie_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:nextFocusDown="@id/registro_tie_mail"
+            android:imeOptions="actionNext"
+            android:inputType="textCapWords" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:padding="10dp"
+        android:id="@+id/main_profile_image"
+        android:layout_height="0dp"
+        android:layout_width="0dp"
+        app:civ_border_width="2dp"
+        android:src="@mipmap/ic_codigonline"
+        app:civ_border_color="@color/color_secondary"
+        app:layout_constraintStart_toEndOf="@id/registro_guideV1"
+        app:layout_constraintEnd_toStartOf="@id/registro_guideV9"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/registro_nombre"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
