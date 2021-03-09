@@ -63,7 +63,7 @@ class MainActivity : AppCompatActivity() {
                 binding.mainTilPassword.error = getString(R.string.error_blank_password)
                 return@setOnClickListener
             }
-            val intent = Intent(this, PlanetaActivity::class.java)
+            val intent = Intent(this, NavigationActivity::class.java)
             startActivity(intent)
 
         }

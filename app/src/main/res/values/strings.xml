@@ -7,4 +7,5 @@
     <string name="main_login">¡Iniciar sesión!</string>
     <string name="error_blank_password">¡La contraseña no puede estar vacia!</string>
     <string name="error_blank_username">¡El usuario no puede estar vacio!</string>
+
 </resources>

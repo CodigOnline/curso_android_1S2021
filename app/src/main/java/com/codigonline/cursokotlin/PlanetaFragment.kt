@@ -9,34 +9,61 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.codigonline.cursokotlin.databinding.FragmentPlanetaBinding
 
+//CONSTANTES
+private const val NOMBRE: String = "nombre"
+private const val IMAGEN: String = "imagen"
 
 class PlanetaFragment : Fragment() {
 
     private lateinit var binding: FragmentPlanetaBinding
-    var listener: PlanetaListener? = null
+
+    private lateinit var nombre: String
+    private lateinit var imagen: String
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        arguments.let {
+            nombre = it!!.getString(NOMBRE)!!
+            imagen = it.getString(IMAGEN)!!
+
+        }
+    }
+
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentPlanetaBinding.inflate(layoutInflater)
         val view = binding.root
-        binding.button.setOnClickListener {
-            val planeta = binding.fragmentPlanetaEt.text.toString()
-            listener?.guardarPlaneta(planeta)
-        }
+
         return view
     }
 
-    interface PlanetaListener {
-        fun guardarPlaneta(nombre: String)
-    }
+    companion object {
+        @JvmStatic
+                /* fun newInstance(nombre: String, imagen: String) =
+                         PlanetaFragment().apply { //AÑADEME INFORMACIÓN
+                             //AÑADE ARGUMENTOS QUE SE PODRÁN USAR EN EL FRAGMENTO
+                             arguments = Bundle().apply { //AÑADAME INFORMACIÓN AL ARGUMENTS
+                                 //MAPA STRING, V
+                                 putString(NOMBRE, nombre)
+                                 putString(IMAGEN, imagen)
+                             }
+
+                         }*/
+
+        fun newInstance(nombre: String, imagen: String) =
+                PlanetaFragment().apply { //AÑADEME INFORMACIÓN
+                    //AÑADE ARGUMENTOS QUE SE PODRÁN USAR EN EL FRAGMENTO
+                    arguments = Bundle().apply { //AÑADAME INFORMACIÓN AL ARGUMENTS
+                        //MAPA STRING, V
+                        putString(NOMBRE, nombre)
+                        putString(IMAGEN, imagen)
+                    }
+                }
 
 
-    // Vincular el fragment con la actividad mediante el listener
-    // La actividad que está vinculada al fragment (como está implementa el PlanetaListener)
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        listener = context as PlanetaListener //Hacemos un cast para poder obtener las funciones deseadas --> guardarPlaneta
     }
 }
