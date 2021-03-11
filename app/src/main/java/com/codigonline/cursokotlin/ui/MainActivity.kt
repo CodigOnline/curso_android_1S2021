@@ -1,4 +1,4 @@
-package com.codigonline.cursokotlin
+package com.codigonline.cursokotlin.ui
 
 
 import android.app.ActivityOptions
@@ -6,7 +6,10 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.widget.addTextChangedListener
+import com.codigonline.cursokotlin.R
 import com.codigonline.cursokotlin.databinding.ActivityMainBinding
+import com.codigonline.cursokotlin.ui.A.AActivity
+import com.codigonline.cursokotlin.ui.Planeta.PlanetaActivity
 import com.google.android.material.textfield.TextInputEditText
 
 
@@ -63,7 +66,7 @@ class MainActivity : AppCompatActivity() {
                 binding.mainTilPassword.error = getString(R.string.error_blank_password)
                 return@setOnClickListener
             }
-            val intent = Intent(this, NavigationActivity::class.java)
+            val intent = Intent(this, AActivity::class.java)
             startActivity(intent)
 
         }

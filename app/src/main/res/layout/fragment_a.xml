@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_secondary"
+    tools:context=".ui.A.AFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/fragment_a_buton_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="Boton 1" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/fragment_a_buton_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="Boton 2" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/fragment_a_buton_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="Boton 3" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/fragment_a_buton_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="Boton 4" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/fragment_a_buton_5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="Boton 5" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/fragment_a_buton_6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="Boton 6" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/fragment_a_buton_7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="Boton 7" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/fragment_a_buton_8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="Boton 8" />
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>

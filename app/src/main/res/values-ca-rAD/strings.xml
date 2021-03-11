@@ -8,4 +8,5 @@
     <string name="main_login">¡Iniciar sessió!</string>
     <string name="error_blank_password">¡La contrasenya not pot estar buida!</string>
     <string name="error_blank_username">¡El nom d\'usuario no pot estar buit!</string>
+    <string name="text_fragment_b">"L\'usuario ha pres el botó: %1$d</string>
 </resources>

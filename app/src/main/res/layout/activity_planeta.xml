@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PlanetaActivity">
+    tools:context=".ui.Planeta.PlanetaActivity">
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/planeta_btn_add"
@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:padding="20dp"
-        android:text="Añadir fragmento"
+        android:text="Reemplazar fragmento"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/planeta_btn_add"

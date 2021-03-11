@@ -1,4 +1,4 @@
-package com.codigonline.cursokotlin
+package com.codigonline.cursokotlin.ui.Planeta
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -20,6 +20,7 @@ class PlanetaActivity : AppCompatActivity() {
             val transaction = fragmentManager.beginTransaction();
             val fragment = PlanetaFragment.newInstance("Alvaro", "alvaro.png")
             transaction.add(binding.planetaLl.id, fragment)
+            transaction.addToBackStack(null)
             transaction.commit()
         }
 
@@ -27,6 +28,7 @@ class PlanetaActivity : AppCompatActivity() {
             val transaction = fragmentManager.beginTransaction()
             val fragment = PruebaFragment.newInstance("fghjk", "jkl")
             transaction.replace(binding.planetaLl.id, fragment)
+            transaction.addToBackStack(null)
             transaction.commit()
         }
 

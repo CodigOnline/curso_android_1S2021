@@ -1,9 +1,10 @@
-package com.codigonline.cursokotlin
+package com.codigonline.cursokotlin.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.inputmethod.EditorInfo
+import com.codigonline.cursokotlin.R
 import com.codigonline.cursokotlin.databinding.ActivityRegistroBinding
 import com.google.android.material.textfield.TextInputEditText
 
