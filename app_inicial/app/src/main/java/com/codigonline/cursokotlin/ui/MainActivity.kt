@@ -52,11 +52,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-
-
-
-
-
         binding.mainBtnLogin.setOnClickListener {
 
             val editPassword = binding.mainTiePassword
