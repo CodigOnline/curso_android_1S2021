@@ -11,18 +11,20 @@
         android:roundIcon="@mipmap/ic_codigonline_round"
         android:supportsRtl="true"
         android:theme="@style/Base.MyTheme">
-        <activity android:name=".ui.B.BActivity"/>
-        <activity android:name=".ui.A.AActivity"><intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter></activity>
+        <activity android:name=".NavActivity"></activity>
+        <activity android:name=".ui.B.BActivity" />
+        <activity android:name=".ui.A.AActivity" />
         <activity android:name=".ui.Planeta.PlanetaActivity" />
         <activity android:name=".ui.RegistroActivity" />
         <activity
             android:name=".ui.MainActivity"
-            android:theme="@style/Splash"/>
+            android:theme="@style/Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

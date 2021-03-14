@@ -9,7 +9,6 @@ import androidx.core.widget.addTextChangedListener
 import com.codigonline.cursokotlin.R
 import com.codigonline.cursokotlin.databinding.ActivityMainBinding
 import com.codigonline.cursokotlin.ui.A.AActivity
-import com.codigonline.cursokotlin.ui.Planeta.PlanetaActivity
 import com.google.android.material.textfield.TextInputEditText
 
 
@@ -19,6 +18,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setTheme(R.style.Base_MyTheme)
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root;
         setContentView(view)
