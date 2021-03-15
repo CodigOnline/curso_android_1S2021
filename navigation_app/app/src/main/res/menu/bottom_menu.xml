@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/productosFragment"
+        android:icon="@drawable/ic_baseline_shopping_cart_24"
+        android:title="@string/tittle_productos"/>
+    <item
+        android:id="@+id/opinionesFragment"
+        android:icon="@drawable/ic_baseline_comment_24"
+        android:title="@string/tittle_opiniones"/>
+
+</menu>

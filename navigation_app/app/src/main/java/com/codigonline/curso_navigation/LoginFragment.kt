@@ -1,6 +1,7 @@
 package com.codigonline.curso_navigation
 
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -74,7 +75,18 @@ class LoginFragment : Fragment() {
                 return@setOnClickListener
             }
 
-            //TODO ir al siguiente fragment
+            val sharedPrefs = activity?.getPreferences(Context.MODE_PRIVATE)!!
+            with(sharedPrefs.edit()){
+                putBoolean("logueado",true)
+                apply()
+            }
+
+           /* val edit = sharedPrefs.edit()
+            edit.putBoolean("logueado",true)
+            edit.apply()*/
+
+
+            NavHostFragment.findNavController(this).navigate(R.id.action_to_bottom_nav_graph)
         }
 
         binding.mainBtnRegistro.setOnClickListener {

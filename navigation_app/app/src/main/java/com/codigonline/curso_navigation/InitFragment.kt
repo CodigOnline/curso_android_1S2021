@@ -1,5 +1,6 @@
 package com.codigonline.curso_navigation
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -16,6 +17,11 @@ class InitFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val sharedPrefs = activity?.getPreferences(Context.MODE_PRIVATE)!!
+        val logueado = sharedPrefs.getBoolean("logueado",false)
+        if (logueado){
+            NavHostFragment.findNavController(this).navigate(R.id.action_to_bottom_nav_graph)
+        }
         binding = FragmentInitBinding.inflate(inflater, container, false)
         val view = binding!!.root
 
@@ -25,5 +31,6 @@ class InitFragment : Fragment() {
 
         return view
     }
+
 
 }

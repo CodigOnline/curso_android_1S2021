@@ -13,8 +13,17 @@
         <action
             android:id="@+id/action_to_loginFragment"
             app:destination="@id/loginFragment"
+
             app:popUpTo="@id/initFragment"
-            app:popUpToInclusive="true" />
+            app:popUpToInclusive="true"
+
+            />
+        <action
+            android:id="@+id/action_to_bottom_nav_graph"
+            app:destination="@id/bottom_nav_graph"
+            app:popUpTo="@id/initFragment"
+            app:popUpToInclusive="true"
+            />
     </fragment>
 
     <fragment
@@ -30,6 +39,12 @@
             android:defaultValue="@null"
             app:argType="string[]"
             app:nullable="true" />
+        <action
+            android:id="@+id/action_to_bottom_nav_graph"
+            app:destination="@id/bottom_nav_graph"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true"
+            />
     </fragment>
 
     <fragment
@@ -43,4 +58,5 @@
             app:popUpTo="@id/registroFragment"
             app:popUpToInclusive="true" />
     </fragment>
+    <include app:graph="@navigation/bottom_nav_graph" />
 </navigation>
