@@ -1,4 +1,4 @@
-package com.codigonline.curso_navigation
+package com.codigonline.curso_navigation.ui.fragments
 
 
 import android.content.Context
@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
 import androidx.navigation.fragment.NavHostFragment
+import com.codigonline.curso_navigation.R
 import com.codigonline.curso_navigation.databinding.FragmentLoginBinding
 import com.google.android.material.textfield.TextInputEditText
 

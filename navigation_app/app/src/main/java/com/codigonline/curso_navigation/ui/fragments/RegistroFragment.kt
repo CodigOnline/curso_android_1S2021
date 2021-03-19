@@ -1,4 +1,4 @@
-package com.codigonline.curso_navigation
+package com.codigonline.curso_navigation.ui.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import androidx.navigation.fragment.NavHostFragment
+import com.codigonline.curso_navigation.R
 import com.codigonline.curso_navigation.databinding.FragmentRegistroBinding
 import com.google.android.material.textfield.TextInputEditText
 

@@ -11,7 +11,6 @@
         android:roundIcon="@mipmap/ic_codigonline_round"
         android:supportsRtl="true"
         android:theme="@style/Base.MyTheme">
-        <activity android:name=".NavActivity"></activity>
         <activity android:name=".ui.B.BActivity" />
         <activity android:name=".ui.A.AActivity" />
         <activity android:name=".ui.Planeta.PlanetaActivity" />

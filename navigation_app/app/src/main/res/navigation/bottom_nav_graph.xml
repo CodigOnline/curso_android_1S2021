@@ -8,12 +8,12 @@
 
     <fragment
         android:id="@+id/productosFragment"
-        android:name="com.codigonline.curso_navigation.ProductosFragment"
+        android:name="com.codigonline.curso_navigation.ui.fragments.ProductosFragment"
         android:label="fragment_productos"
         tools:layout="@layout/fragment_productos" />
     <fragment
         android:id="@+id/opinionesFragment"
-        android:name="com.codigonline.curso_navigation.OpinionesFragment"
+        android:name="com.codigonline.curso_navigation.ui.fragments.OpinionesFragment"
         android:label="fragment_opiniones"
         tools:layout="@layout/fragment_opiniones" />
 </navigation>

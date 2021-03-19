@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/initFragment"
-        android:name="com.codigonline.curso_navigation.InitFragment"
+        android:name="com.codigonline.curso_navigation.ui.fragments.InitFragment"
         android:label="fragment_init"
         tools:layout="@layout/fragment_init">
         <action
@@ -28,7 +28,7 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.codigonline.curso_navigation.LoginFragment"
+        android:name="com.codigonline.curso_navigation.ui.fragments.LoginFragment"
         android:label="LoginFragment"
         tools:layout="@layout/fragment_login">
         <action
@@ -49,7 +49,7 @@
 
     <fragment
         android:id="@+id/registroFragment"
-        android:name="com.codigonline.curso_navigation.RegistroFragment"
+        android:name="com.codigonline.curso_navigation.ui.fragments.RegistroFragment"
         android:label="RegistroFragment"
         tools:layout="@layout/fragment_registro">
         <action

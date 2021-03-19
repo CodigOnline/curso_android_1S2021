@@ -1,4 +1,4 @@
-package com.codigonline.curso_navigation
+package com.codigonline.curso_navigation.ui.fragments
 
 import android.content.Context
 import android.os.Bundle
@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.NavHostFragment
+import com.codigonline.curso_navigation.R
 import com.codigonline.curso_navigation.databinding.FragmentInitBinding
 
 class InitFragment : Fragment() {

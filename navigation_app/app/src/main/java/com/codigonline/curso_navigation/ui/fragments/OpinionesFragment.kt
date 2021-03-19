@@ -1,4 +1,4 @@
-package com.codigonline.curso_navigation
+package com.codigonline.curso_navigation.ui.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
