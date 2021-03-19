@@ -6,8 +6,8 @@
     android:elevation="10dp"
     android:orientation="vertical"
     app:cardCornerRadius="15dp"
-    app:strokeColor="@color/black"
-    app:strokeWidth="1dp">
+    app:strokeWidth="1dp"
+    android:layout_margin="10dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -36,17 +36,40 @@
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.9" />
 
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/producto_precio"
-            style="@style/Widget.MaterialComponents.Button"
-            android:layout_width="0dp"
+        <LinearLayout
+            android:id="@+id/producto_botones"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            app:cornerRadius="5dp"
+            android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/producto_precio"
+                style="@style/Widget.MaterialComponents.Button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginTop="5dp"
+                app:cornerRadius="5dp"
+                android:layout_margin="3dp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/producto_eliminar"
+                style="@style/Widget.MaterialComponents.Button"
+                android:backgroundTint="@color/color_error"
+                android:textColor="@color/color_on_error"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginTop="5dp"
+                app:cornerRadius="5dp"
+                android:layout_margin="3dp"
+                android:text="@string/eliminar"/>
+
+        </LinearLayout>
+
 
         <TextView
             android:id="@+id/producto_description"
@@ -55,7 +78,7 @@
             android:layout_marginTop="5dp"
             android:gravity="center_vertical"
             android:lines="5"
-            app:layout_constraintBottom_toTopOf="@id/producto_precio"
+            app:layout_constraintBottom_toTopOf="@id/producto_botones"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 

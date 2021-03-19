@@ -7,6 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.Toast
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.codigonline.curso_navigation.R
@@ -23,6 +25,8 @@ class ProductosFragment : Fragment() {
 
     private var listener: MainListener? = null
     private var _binding: FragmentProductosBinding? = null
+    private lateinit var mAdapter:RecyclerViewAdapter
+
 
 
     override fun onCreateView(
@@ -33,8 +37,14 @@ class ProductosFragment : Fragment() {
         _binding = FragmentProductosBinding.inflate(inflater, container, false)
         val binding = _binding!!
         val view = binding.root
+        //createListView()
+        createRecyclerView()
 
-        loadListView()
+        binding.productosFab.setOnClickListener {
+            mAdapter.crearProducto(Producto(15L,"Nuevo producto","Nueva descripción",345678.0,2))
+        }
+
+
 
 
         return view
@@ -42,24 +52,14 @@ class ProductosFragment : Fragment() {
 
     }
 
-    private fun loadListView() {
-
-
-        /*
-        createListView()
-         */
-        createRecyclerView()
-
-
-    }
-
     private fun createRecyclerView() {
-        val mAdapter = RecyclerViewAdapter(cargarProductos())
+        mAdapter = RecyclerViewAdapter(cargarProductos() as MutableList<Producto>)
         val recyclerView = _binding!!.productosRecyclerView
         recyclerView.apply {
             //EL RECYCLER VIEW VA A SER UNA LISTA VERTICAL
             layoutManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
             adapter = mAdapter
+            addItemDecoration(DividerItemDecoration(requireContext(), RecyclerView.VERTICAL))
         }
     }
 
@@ -80,7 +80,7 @@ class ProductosFragment : Fragment() {
         val productos = mutableListOf<Producto>() //LISTA MUTABLE
 
         productos.add(Producto(1, "individual-mini", "Clases individuales de repaso en informática tamaño mini, 2 clases ", 59.99, 2))
-        productos.add(Producto(2, "individual-basic", "Clases individuales de repaso en informática tamaño basic, 4 clases ", 79.99, 4))
+        productos.add(Producto(1, "individual-basic", "Clases individuales de repaso en informática tamaño basic, 4 clases ", 79.99, 4))
         productos.add(Producto(3, "individual-premium", "Clases individuales de repaso en informática tamaño premium, 10 clases ", 119.99, 10))
         productos.add(Producto(4, "grupo-mini", "Clases en grupo de repaso en informática tamaño mini, 2 clases ", 39.99, 2))
         productos.add(Producto(5, "grupo-basic", "Clases en grupo de repaso en informática tamaño basic, 4 clases ", 59.99, 4))
