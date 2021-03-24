@@ -3,11 +3,17 @@ package com.codigonline.curso_navigation.ui.activities
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.codigonline.curso_navigation.listeners.MainListener
 import com.codigonline.curso_navigation.R
+import com.codigonline.curso_navigation.database.AppDatabase
+import com.codigonline.curso_navigation.database.entities.Usuario
 import com.codigonline.curso_navigation.databinding.ActivityMainBinding
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class MainActivity : AppCompatActivity(), MainListener {
 
@@ -22,7 +28,6 @@ class MainActivity : AppCompatActivity(), MainListener {
         val bottomNavView = binding.bottomNavView
         val navController = findNavController(R.id.nav_host_fragment)
         bottomNavView.setupWithNavController(navController)
-
 
 
     }

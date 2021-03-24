@@ -6,9 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.NavHostFragment
 import com.codigonline.curso_navigation.R
+import com.codigonline.curso_navigation.database.entities.Usuario
 import com.codigonline.curso_navigation.databinding.FragmentRegistroBinding
+import com.codigonline.curso_navigation.viewModels.UsuarioViewModel
 import com.google.android.material.textfield.TextInputEditText
 
 
@@ -116,8 +119,14 @@ class RegistroFragment : Fragment() {
                 return@setOnClickListener
             }
 
-            val actions = RegistroFragmentDirections.actionToLoginFragment(setData())
 
+
+
+//LOS DATOS SON CORRECTOS, VOY A GUARDAR EL USUARIO EN LA DB
+
+            val usuarioModel:UsuarioViewModel by viewModels()
+            usuarioModel.save(Usuario(nombre.obtenerTexto(),email.obtenerTexto(),pass1.obtenerTexto()))
+            val actions = RegistroFragmentDirections.actionToLoginFragment(setData())
             NavHostFragment.findNavController(this).navigate(actions)
 
 

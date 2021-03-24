@@ -76,17 +76,20 @@ class LoginFragment : Fragment() {
                 return@setOnClickListener
             }
 
-            val sharedPrefs = activity?.getPreferences(Context.MODE_PRIVATE)!!
-            with(sharedPrefs.edit()){
-                putBoolean("logueado",true)
-                apply()
-            }
 
            /* val edit = sharedPrefs.edit()
             edit.putBoolean("logueado",true)
             edit.apply()*/
 
+            //RECUPERAR EL USUARIO DE LA DB
+            //SI EL USUARIO EXISTE COMPROBAR SI LA CONTRASEÑA COINCIDE
+            //SI ES TO_DO CORRECTO UTILIZAMOS EL NAVHOSTFRAGMENT PARA IR AL SIGUIENTE FRAGMENT
 
+            val sharedPrefs = activity?.getPreferences(Context.MODE_PRIVATE)!!
+            with(sharedPrefs.edit()){
+                putBoolean("logueado",true)
+                apply()
+            }
             NavHostFragment.findNavController(this).navigate(R.id.action_to_bottom_nav_graph)
         }
 

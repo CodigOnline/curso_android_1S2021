@@ -6,10 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
-import android.widget.Toast
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -20,6 +17,7 @@ import com.codigonline.curso_navigation.ui.activities.MainActivity
 import com.codigonline.curso_navigation.listeners.MainListener
 import com.codigonline.curso_navigation.databinding.FragmentProductosBinding
 import com.codigonline.curso_navigation.models.Producto
+import com.codigonline.curso_navigation.viewModels.ProductoViewModel
 
 
 class ProductosFragment : Fragment() {

@@ -1,4 +1,4 @@
-package com.codigonline.curso_navigation.ui.fragments
+package com.codigonline.curso_navigation.viewModels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -30,7 +30,7 @@ class ProductoViewModel : ViewModel() {
         //SIMULANDO LA CONEXIÓN A LA BD
 
         viewModelScope.launch {
-            withContext(Dispatchers.IO) {
+            withContext(Dispatchers.IO) { //CONTEXTO DE ENTRADA Y SALIDA
                 val productos = mutableListOf<Producto>() //LISTA MUTABLE
                 productos.add(
                     Producto(
