@@ -5,8 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import com.codigonline.curso_navigation.database.entities.Producto
 import com.codigonline.curso_navigation.databinding.ItemProductoListViewBinding
-import com.codigonline.curso_navigation.models.Producto
 
 class ListViewAdapter(context: Context, val vista: Int, val productos: List<Producto>)
     : ArrayAdapter<Producto>(context, vista, productos) {

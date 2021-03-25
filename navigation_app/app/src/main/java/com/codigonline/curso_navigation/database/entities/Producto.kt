@@ -1,21 +1,15 @@
-package com.codigonline.curso_navigation.models
+package com.codigonline.curso_navigation.database.entities
 
-data class Producto(val nombre: String, val descripcion: String, val precio: Double, val clases: Int) {
+import androidx.room.Entity
 
-    var id: Long = -1
+
+@Entity(tableName = "productos")
+data class Producto(val nombre: String, val descripcion: String, val precio: Double, val clases: Int):BaseEntity() {
 
     constructor(id: Long, nombre: String, descripcion: String, precio: Double, clases: Int) : this(nombre, descripcion, precio, clases) {
         this.id = id
     }
 
-    override fun toString(): String {
-        return "Producto(id=$id, nombre=$nombre, descripcion=$descripcion, precio=$precio, clases=$clases)"
-    }
-
-    /**
-     * Funcion que recibe un Any que viene a ser un Object de Java
-     * Devuelve un booleano
-     */
     override fun equals(other: Any?): Boolean {
         // el triple igual determina si el objeto es exactamente el mismo (clase, valor de atributos y dirección de memoria)
         if (this === other) return true
@@ -34,6 +28,4 @@ data class Producto(val nombre: String, val descripcion: String, val precio: Dou
         //AQUI SOLO LLEGAMOS SI LA COMPROBACIÓN DE CADA UNO DE LOS ATRIBUTOS NO HA DADO FALSE
         return true
     }
-
-
 }

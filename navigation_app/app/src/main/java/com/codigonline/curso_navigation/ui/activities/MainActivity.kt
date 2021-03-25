@@ -8,6 +8,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.codigonline.curso_navigation.listeners.MainListener
 import com.codigonline.curso_navigation.R
+import com.codigonline.curso_navigation.application.App
 import com.codigonline.curso_navigation.database.AppDatabase
 import com.codigonline.curso_navigation.database.entities.Usuario
 import com.codigonline.curso_navigation.databinding.ActivityMainBinding
@@ -24,6 +25,13 @@ class MainActivity : AppCompatActivity(), MainListener {
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+
+        lifecycleScope.launch {
+            withContext(Dispatchers.IO){
+                App.obtenerDB().mainDao().init()
+            }
+        }
+
 
         val bottomNavView = binding.bottomNavView
         val navController = findNavController(R.id.nav_host_fragment)

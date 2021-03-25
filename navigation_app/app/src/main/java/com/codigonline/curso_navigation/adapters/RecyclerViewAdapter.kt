@@ -3,8 +3,9 @@ package com.codigonline.curso_navigation.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.codigonline.curso_navigation.database.entities.Producto
 import com.codigonline.curso_navigation.databinding.ItemProductoRecyclerViewBinding
-import com.codigonline.curso_navigation.models.Producto
+
 
 class RecyclerViewAdapter(val productos: MutableList<Producto>) : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
 
