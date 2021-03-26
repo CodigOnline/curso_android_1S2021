@@ -5,9 +5,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.codigonline.curso_navigation.database.entities.Producto
 import com.codigonline.curso_navigation.databinding.ItemProductoRecyclerViewBinding
+import com.codigonline.curso_navigation.viewModels.CartViewModel
 
 
-class RecyclerViewAdapter(val productos: MutableList<Producto>) : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
+class ProductosRecyclerViewAdapter(val productos: MutableList<Producto>, val cart: CartViewModel) :
+    RecyclerView.Adapter<ProductosRecyclerViewAdapter.ViewHolder>() {
 
     private fun eliminarProducto(producto: Producto) {
         val pos = productos.indexOf(producto)
@@ -27,7 +29,10 @@ class RecyclerViewAdapter(val productos: MutableList<Producto>) : RecyclerView.A
     }
 
 
-    class ViewHolder private constructor(val binding: ItemProductoRecyclerViewBinding, val adapter: RecyclerViewAdapter) : RecyclerView.ViewHolder(binding.root) {
+    class ViewHolder private constructor(
+        val binding: ItemProductoRecyclerViewBinding,
+        val adapterProductos: ProductosRecyclerViewAdapter
+    ) : RecyclerView.ViewHolder(binding.root) {
         fun rellenarDatos(producto: Producto) {
             binding.productoName.text = producto.nombre
             binding.productoClases.text = producto.clases.toString()
@@ -35,27 +40,36 @@ class RecyclerViewAdapter(val productos: MutableList<Producto>) : RecyclerView.A
             binding.productoPrecio.text = producto.precio.toString()
 
             binding.productoEliminar.setOnClickListener {
-                adapter.eliminarProducto(producto)
+                adapterProductos.eliminarProducto(producto)
+            }
+            binding.productoPrecio.setOnClickListener {
+                adapterProductos.cart.addProductoToCart(producto)
             }
         }
 
         companion object {
-            fun newInstance(parent: ViewGroup, adapter: RecyclerViewAdapter): ViewHolder {
+            fun newInstance(
+                parent: ViewGroup,
+                adapterProductos: ProductosRecyclerViewAdapter
+            ): ViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
                 val binding = ItemProductoRecyclerViewBinding.inflate(layoutInflater, parent, false)
-                return ViewHolder(binding, adapter)
+                return ViewHolder(binding, adapterProductos)
             }
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ViewHolder.newInstance(parent, this)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
+        ViewHolder.newInstance(parent, this)
 
     /* override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):ViewHolder{
          val layoutInflater = LayoutInflater.from(parent.context)
          val binding = ItemProductoRecyclerViewBinding.inflate(layoutInflater, parent, false)
          return ViewHolder(binding)
      }*/
-    override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) = viewHolder.rellenarDatos(productos[position])
+    override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) =
+        viewHolder.rellenarDatos(productos[position])
+
     override fun getItemCount() = productos.size
 
     /*    override fun getItemCount(): Int {

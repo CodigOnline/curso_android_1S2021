@@ -6,17 +6,19 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.codigonline.curso_navigation.R
 import com.codigonline.curso_navigation.adapters.ListViewAdapter
-import com.codigonline.curso_navigation.adapters.RecyclerViewAdapter
+import com.codigonline.curso_navigation.adapters.ProductosRecyclerViewAdapter
+import com.codigonline.curso_navigation.database.entities.Producto
 import com.codigonline.curso_navigation.ui.activities.MainActivity
 import com.codigonline.curso_navigation.listeners.MainListener
 import com.codigonline.curso_navigation.databinding.FragmentProductosBinding
-import com.codigonline.curso_navigation.models.Producto
+import com.codigonline.curso_navigation.viewModels.CartViewModel
 import com.codigonline.curso_navigation.viewModels.ProductoViewModel
 
 
@@ -25,7 +27,9 @@ class ProductosFragment : Fragment() {
 
     private var listener: MainListener? = null
     private var _binding: FragmentProductosBinding? = null
-    private lateinit var mAdapter: RecyclerViewAdapter
+    private lateinit var mAdapterProductos: ProductosRecyclerViewAdapter
+    val modelProductos: ProductoViewModel by viewModels()
+    val modelCarrito: CartViewModel by activityViewModels()
 
 
     override fun onCreateView(
@@ -40,9 +44,9 @@ class ProductosFragment : Fragment() {
         // createRecyclerView()
 
         //val model = ViewModelProvider(this).get(ProductoViewModel::class.java)
-        val model: ProductoViewModel by viewModels()
 
-        model.obtenerProductos().observe(viewLifecycleOwner, { //--> RECIBO NOTIFICACIÓN DE DATOS NUEVOS
+
+        modelProductos.obtenerProductos().observe(viewLifecycleOwner, { //--> RECIBO NOTIFICACIÓN DE DATOS NUEVOS
             createRecyclerView(it)
         })
 
@@ -52,7 +56,7 @@ class ProductosFragment : Fragment() {
 
 
         binding.productosFab.setOnClickListener {
-            mAdapter.crearProducto(Producto(15L, "Nuevo producto", "Nueva descripción", 345678.0, 2))
+            mAdapterProductos.crearProducto(Producto(15L, "Nuevo producto", "Nueva descripción", 345678.0, 2))
         }
 
 
@@ -64,12 +68,12 @@ class ProductosFragment : Fragment() {
     }
 
     private fun createRecyclerView(productos: List<Producto>) {
-        mAdapter = RecyclerViewAdapter(productos as MutableList<Producto>)
+        mAdapterProductos = ProductosRecyclerViewAdapter(productos as MutableList<Producto>,modelCarrito)
         val recyclerView = _binding!!.productosRecyclerView
         recyclerView.apply {
             //EL RECYCLER VIEW VA A SER UNA LISTA VERTICAL
             layoutManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
-            adapter = mAdapter
+            adapter = mAdapterProductos
             addItemDecoration(DividerItemDecoration(requireContext(), RecyclerView.VERTICAL))
         }
     }

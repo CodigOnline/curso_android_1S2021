@@ -14,9 +14,10 @@
 
 
     <string name="tittle_productos">Productos</string>
-    <string name="tittle_opiniones">Opiniones</string>
+    <string name="tittle_cart">Carrito</string>
     <string name="eliminar">Eliminar</string>
     <string name="add_nuevo_producto">Añadir nuevo producto</string>
+    <string name="pagar">PAGAR</string>
 
 
 </resources>

@@ -9,6 +9,6 @@ import java.util.*
 // CODIGO --> camelCase
 //BD --> snake_case
 @Entity(tableName = "compras")
-data class Compra(val fechaCompra: Date, @ColumnInfo(name = "usuario_id") val usuarioId: Long):BaseEntity(){
-
+data class Compra(@ColumnInfo(name = "usuario_id") val usuarioId: Long) : BaseEntity() {
+    var fechaCompra: Date = Date(System.currentTimeMillis())
 }

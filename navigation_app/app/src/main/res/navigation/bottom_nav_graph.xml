@@ -13,7 +13,7 @@
         tools:layout="@layout/fragment_productos" />
     <fragment
         android:id="@+id/opinionesFragment"
-        android:name="com.codigonline.curso_navigation.ui.fragments.OpinionesFragment"
+        android:name="com.codigonline.curso_navigation.ui.fragments.CartFragment"
         android:label="fragment_opiniones"
-        tools:layout="@layout/fragment_opiniones" />
+        tools:layout="@layout/fragment_cart" />
 </navigation>

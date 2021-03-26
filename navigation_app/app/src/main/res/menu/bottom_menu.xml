@@ -8,6 +8,6 @@
     <item
         android:id="@+id/opinionesFragment"
         android:icon="@drawable/ic_baseline_comment_24"
-        android:title="@string/tittle_opiniones"/>
+        android:title="@string/tittle_cart"/>
 
 </menu>
