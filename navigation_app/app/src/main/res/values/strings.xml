@@ -19,5 +19,9 @@
     <string name="add_nuevo_producto">Añadir nuevo producto</string>
     <string name="pagar">PAGAR</string>
 
+    <string name="total_cart">Total: %1$.2f €</string>
+    <string name="cantidad_clases">Clases: %1$d</string>
+
+
 
 </resources>

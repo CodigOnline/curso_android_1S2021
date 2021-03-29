@@ -12,11 +12,12 @@ import com.codigonline.curso_navigation.application.App
 import com.codigonline.curso_navigation.database.AppDatabase
 import com.codigonline.curso_navigation.database.entities.Usuario
 import com.codigonline.curso_navigation.databinding.ActivityMainBinding
+import com.codigonline.curso_navigation.listeners.BottomNavListener
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class MainActivity : AppCompatActivity(), MainListener {
+class MainActivity : AppCompatActivity(), MainListener, BottomNavListener {
 
     private lateinit var binding: ActivityMainBinding
 
@@ -27,7 +28,7 @@ class MainActivity : AppCompatActivity(), MainListener {
         setContentView(view)
 
         lifecycleScope.launch {
-            withContext(Dispatchers.IO){
+            withContext(Dispatchers.IO) {
                 App.obtenerDB().mainDao().init()
             }
         }
@@ -42,6 +43,12 @@ class MainActivity : AppCompatActivity(), MainListener {
 
     override fun showBottomNavigation() {
         binding.bottomNavView.visibility = View.VISIBLE
+    }
+
+    override fun updateBadge(cantidad: Int) {
+        val badge = binding.bottomNavView.getOrCreateBadge(R.id.opinionesFragment)
+        badge.number = cantidad
+        badge.isVisible = cantidad>0
     }
 
 

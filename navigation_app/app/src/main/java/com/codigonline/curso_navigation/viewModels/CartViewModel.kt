@@ -1,6 +1,5 @@
 package com.codigonline.curso_navigation.viewModels
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -8,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.codigonline.curso_navigation.application.App
 import com.codigonline.curso_navigation.database.entities.Compra
 import com.codigonline.curso_navigation.database.entities.Producto
+import com.codigonline.curso_navigation.listeners.BottomNavListener
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -15,7 +15,13 @@ import kotlinx.coroutines.withContext
 class CartViewModel : ViewModel() {
 
     private val _productosCompra: MutableLiveData<Map<Producto, Int>> =
-        MutableLiveData<Map<Producto, Int>>()
+            MutableLiveData<Map<Producto, Int>>()
+
+    private lateinit var listener: BottomNavListener
+
+    fun initListener(listener: BottomNavListener) {
+        this.listener = listener
+    }
 
     fun obtenerProductos(): LiveData<Map<Producto, Int>> = _productosCompra
 
@@ -27,7 +33,7 @@ class CartViewModel : ViewModel() {
             _productos as MutableMap<Producto, Int>
         }
 
-
+//PARA ACTUALIZAR EL MAPA DE PRODUCTOS
         if (map[producto] == null) {
             map[producto] = 1
         } else {
@@ -35,19 +41,48 @@ class CartViewModel : ViewModel() {
             map[producto] = cantidad + 1
         }
 
+        //PARA ACTUALIZAR EL BADGE
         var total = 0;
         map.forEach { (_, cantidad) ->
             total += cantidad
         }
+        if (this::listener.isInitialized)
+            listener.updateBadge(total)
 
 
-        _productosCompra.postValue(map)
+
+
+        _productosCompra.postValue(map) // <--
 
 
     }
 
     fun delProductoFromCart(producto: Producto) {
+        val _productos = _productosCompra.value
+        val map = if (_productos == null) {
+            mutableMapOf()
+        } else {
+            _productos as MutableMap<Producto, Int>
+        }
 
+//PARA ACTUALIZAR EL MAPA DE PRODUCTOS
+        if (map[producto] != null) {
+            val cantidad = map[producto]!!
+            map[producto] = cantidad - 1
+            if (map[producto] == 0)
+                map.remove(producto)
+        }
+
+        //PARA ACTUALIZAR EL BADGE
+        var total = 0;
+        map.forEach { (_, cantidad) ->
+            total += cantidad
+        }
+        if (this::listener.isInitialized)
+            listener.updateBadge(total)
+
+
+        _productosCompra.postValue(map) // <--
     }
 
 
@@ -72,6 +107,5 @@ class CartViewModel : ViewModel() {
                 }
             }
         }
-
     }
 }
