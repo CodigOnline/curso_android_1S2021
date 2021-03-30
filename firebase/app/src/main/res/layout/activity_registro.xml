@@ -85,7 +85,7 @@
             android:layout_height="match_parent"
             android:imeOptions="actionDone"
             android:inputType="textPassword"
-            android:text="1234" />
+            android:text="123456" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -112,7 +112,7 @@
             android:imeOptions="actionNext"
             android:inputType="textPassword"
             android:nextFocusDown="@id/registro_tie_pass2"
-            android:text="1234" />
+            android:text="123456" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout

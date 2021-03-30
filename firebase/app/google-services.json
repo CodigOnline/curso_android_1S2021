@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "719551448752",
+    "project_id": "curso-kotlin-8c0a0",
+    "storage_bucket": "curso-kotlin-8c0a0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:719551448752:android:d00d6a5669ba5ee96e1d75",
+        "android_client_info": {
+          "package_name": "com.codigonline.firebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "719551448752-4agdbbr4qis7e443dfpocelr62o86c79.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwcpt8K6RluJR-dFKekO9nzEBi3GvZuvs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "719551448752-4agdbbr4qis7e443dfpocelr62o86c79.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

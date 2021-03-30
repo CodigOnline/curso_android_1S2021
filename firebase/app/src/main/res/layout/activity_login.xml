@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.MainActivity">
+    tools:context=".ui.LoginActivity">
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/main_Vguide10"
         android:layout_width="match_parent"
@@ -93,6 +93,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:inputType="textPassword"
+            android:text="123456"
             />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -117,6 +118,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:inputType="textEmailAddress"
+            android:text="alortegama@gmail.com"
             />
     </com.google.android.material.textfield.TextInputLayout>
 
