@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Firebase</string>
+    <string name="forgot_password">¿Has olvidado la contraseña?</string>
+    <string name="main_registro">¡Registrate!</string>
+    <string name="main_password">Contraseña</string>
+    <string name="main_username">Correo electronico</string>
+    <string name="main_login">¡Iniciar sesión!</string>
+    <string name="error_blank_password">¡La contraseña no puede estar vacia!</string>
+    <string name="title_activity_producto">ProductoActivity</string>
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+    <string name="hello_world">Hello Square World!</string>
+</resources>
