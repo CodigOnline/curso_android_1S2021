@@ -48,9 +48,10 @@ class CartRecyclerViewAdapter(val productos: Map<Producto, Int>, val model: Cart
     ) : RecyclerView.ViewHolder(binding.root) {
         fun rellenarDatos(entry: Pair<Producto, Int>, context: Context) {
             binding.cartTvName.text = entry.first.nombre
-            binding.cartTvClases.text = context.getString(R.string.cantidad_clases, entry.first.clases)
-            binding.cartTvPrecio.text = entry.first.precio.toString()
-            binding.cartTvCantidad.text = entry.second.toString()
+            //binding.cartTvClases.text = context.getString(R.string.clases_cart, entry.first.clases)
+            binding.cartTvPrecio.text = context.getString(R.string.precio_cart, entry.first.precio)
+            binding.cartTvCantidad.text = context.getString(R.string.cantidad_cart, entry.second)
+            binding.cartTvDesc.text = entry.first.descripcion
 
             binding.cartItemMas.setOnClickListener {
                 adapterProductos.addToCart(entry.first)

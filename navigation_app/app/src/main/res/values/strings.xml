@@ -20,8 +20,13 @@
     <string name="pagar">PAGAR</string>
 
     <string name="total_cart">Total: %1$.2f €</string>
-    <string name="cantidad_clases">Clases: %1$d</string>
+    <string name="clases_cart">Clases: %1$d</string>
+    <string name="comprar_product">Comprar: %1$.2f €</string>
+    <string name="cantidad_cart">En el carrito: %1$d veces</string>
+    <string name="precio_cart">%1$.2f €</string>
 
+    <string name="restar">Restar</string>
+    <string name="add">Añadir</string>
 
 
 </resources>

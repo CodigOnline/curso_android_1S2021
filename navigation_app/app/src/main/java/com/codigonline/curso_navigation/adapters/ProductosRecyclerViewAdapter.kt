@@ -1,14 +1,16 @@
 package com.codigonline.curso_navigation.adapters
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.codigonline.curso_navigation.R
 import com.codigonline.curso_navigation.database.entities.Producto
 import com.codigonline.curso_navigation.databinding.ItemProductoRecyclerViewBinding
 import com.codigonline.curso_navigation.viewModels.CartViewModel
 
 
-class ProductosRecyclerViewAdapter(val productos: MutableList<Producto>, val cart: CartViewModel) :
+class ProductosRecyclerViewAdapter(val productos: MutableList<Producto>, val cart: CartViewModel,val context: Context) :
     RecyclerView.Adapter<ProductosRecyclerViewAdapter.ViewHolder>() {
 
     private fun eliminarProducto(producto: Producto) {
@@ -33,11 +35,11 @@ class ProductosRecyclerViewAdapter(val productos: MutableList<Producto>, val car
         val binding: ItemProductoRecyclerViewBinding,
         val adapterProductos: ProductosRecyclerViewAdapter
     ) : RecyclerView.ViewHolder(binding.root) {
-        fun rellenarDatos(producto: Producto) {
-            binding.productoName.text = producto.nombre
-            binding.productoClases.text = producto.clases.toString()
-            binding.productoDescription.text = producto.descripcion
-            binding.productoPrecio.text = producto.precio.toString()
+        fun rellenarDatos(producto: Producto,context:Context) {
+            binding.productoNombre.text = producto.nombre
+            binding.productoClases.text = context.getString(R.string.clases_cart,producto.clases)
+            binding.productoDescipcion.text = producto.descripcion
+            binding.productoPrecio.text = context.getString(R.string.precio_cart,producto.precio)
 
             binding.productoEliminar.setOnClickListener {
                 adapterProductos.eliminarProducto(producto)
@@ -68,7 +70,7 @@ class ProductosRecyclerViewAdapter(val productos: MutableList<Producto>, val car
          return ViewHolder(binding)
      }*/
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) =
-        viewHolder.rellenarDatos(productos[position])
+        viewHolder.rellenarDatos(productos[position],context)
 
     override fun getItemCount() = productos.size
 

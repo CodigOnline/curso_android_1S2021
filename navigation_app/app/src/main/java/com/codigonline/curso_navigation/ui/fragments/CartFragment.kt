@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -18,6 +19,7 @@ import com.codigonline.curso_navigation.database.entities.Producto
 import com.codigonline.curso_navigation.databinding.FragmentCartBinding
 import com.codigonline.curso_navigation.ui.activities.MainActivity
 import com.codigonline.curso_navigation.viewModels.CartViewModel
+import com.google.android.material.snackbar.Snackbar
 
 class CartFragment : Fragment(), CartRecyclerViewAdapter.CartListener {
 
@@ -62,7 +64,6 @@ class CartFragment : Fragment(), CartRecyclerViewAdapter.CartListener {
             //EL RECYCLER VIEW VA A SER UNA LISTA VERTICAL
             layoutManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
             adapter = mAdapterProductos
-            addItemDecoration(DividerItemDecoration(requireContext(), RecyclerView.VERTICAL))
         }
     }
 

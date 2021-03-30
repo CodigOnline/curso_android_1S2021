@@ -68,7 +68,7 @@ class ProductosFragment : Fragment() {
     }
 
     private fun createRecyclerView(productos: List<Producto>) {
-        mAdapterProductos = ProductosRecyclerViewAdapter(productos as MutableList<Producto>, modelCarrito)
+        mAdapterProductos = ProductosRecyclerViewAdapter(productos as MutableList<Producto>, modelCarrito,requireContext())
         val recyclerView = _binding!!.productosRecyclerView
         recyclerView.apply {
             //EL RECYCLER VIEW VA A SER UNA LISTA VERTICAL

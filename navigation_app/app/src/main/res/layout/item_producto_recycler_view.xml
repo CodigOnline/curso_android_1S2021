@@ -3,122 +3,134 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:elevation="10dp"
+    android:layout_margin="8dp"
+    android:clickable="false"
+    android:elevation="4dp"
+    android:focusable="false"
     android:orientation="vertical"
     app:cardCornerRadius="15dp"
-    app:strokeWidth="1dp"
-    android:layout_margin="10dp">
+    app:strokeColor="@color/color_secondary"
+    app:strokeWidth="1dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="20dp">
-
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideLineV5"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.5" />
+        android:layout_marginEnd="16dp"
+        android:paddingStart="16dp"
+        android:paddingTop="16dp"
+        android:paddingEnd="0dp">
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideLineV1"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.1" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideLineV9"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.9" />
-
-        <LinearLayout
-            android:id="@+id/producto_botones"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/producto_precio"
-                style="@style/Widget.MaterialComponents.Button"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginTop="5dp"
-                app:cornerRadius="5dp"
-                android:layout_margin="3dp"/>
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/producto_eliminar"
-                style="@style/Widget.MaterialComponents.Button"
-                android:backgroundTint="@color/color_error"
-                android:textColor="@color/color_on_error"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginTop="5dp"
-                app:cornerRadius="5dp"
-                android:layout_margin="3dp"
-                android:text="@string/eliminar"/>
-
-        </LinearLayout>
-
-
-        <TextView
-            android:id="@+id/producto_description"
+            android:id="@+id/guideH70"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:gravity="center_vertical"
-            android:lines="5"
-            app:layout_constraintBottom_toTopOf="@id/producto_botones"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.7" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/producto_precio"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/comprar_product"
+            app:icon="@drawable/ic_baseline_shopping_cart_24"
+            app:iconGravity="textStart"
+            android:textColor="@color/color_primary_variant"
+            app:iconTint="@color/color_primary_variant"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/producto_descipcion"
+            app:layout_constraintVertical_bias="0.8" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/producto_eliminar"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/eliminar"
+            android:textColor="@color/color_error"
+            app:icon="@drawable/ic_baseline_delete_24"
+            app:iconTint="@color/color_error"
+            app:iconGravity="textStart"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/producto_precio"
+            app:layout_constraintTop_toTopOf="@id/producto_precio" />
+
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="14dp"
+            android:layout_marginBottom="6dp"
+            android:layout_marginTop="6dp"
+            android:background="@color/color_background"
+            app:layout_constraintTop_toBottomOf="@id/producto_descipcion"
+            app:layout_constraintBottom_toTopOf="@id/producto_precio"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <LinearLayout
-            android:id="@+id/title"
+        <TextView
+            android:id="@+id/producto_descipcion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:textAppearance="?attr/textAppearanceBody2"
+            android:textColor="@color/color_secondary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/producto_nombre"
+            app:layout_constraintTop_toBottomOf="@id/producto_nombre" />
+
+        <TextView
+            android:id="@+id/producto_nombre"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toTopOf="@id/producto_description"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textAllCaps="true"
+            android:textAppearance="?attr/textAppearanceHeadline5"
+            android:textColor="@color/color_on_surface"
+            app:layout_constraintEnd_toStartOf="@id/guideH70"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/product_img" />
+
+        <TextView
+            android:id="@+id/producto_clases"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textAppearance="?attr/textAppearanceCaption"
+            android:textColor="@color/color_secondary"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/producto_nombre"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
-
-            <TextView
-                android:id="@+id/producto_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:textAppearance="?attr/textAppearanceHeadline6"
-                android:textColor="@color/color_on_surface" />
-
-            <TextView
-                android:id="@+id/producto_clases"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textAppearance="?attr/textAppearanceBody2"
-                android:textColor="@color/color_secondary" />
-
-        </LinearLayout>
+            app:layout_constraintStart_toEndOf="@id/guideH70"
+            app:layout_constraintTop_toTopOf="@id/producto_nombre" />
 
         <ImageView
+            android:id="@+id/product_img"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:contentDescription="Imagen del producto"
             android:src="@drawable/ic_logo"
-            app:layout_constraintBottom_toTopOf="@id/title"
-            app:layout_constraintEnd_toStartOf="@id/guideLineV9"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_min="150dp"
-            app:layout_constraintStart_toEndOf="@id/guideLineV1"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </com.google.android.material.card.MaterialCardView>

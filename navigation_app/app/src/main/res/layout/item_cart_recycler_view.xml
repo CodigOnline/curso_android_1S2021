@@ -3,128 +3,135 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp"
-    android:elevation="10dp"
+    android:clickable="false"
+    android:elevation="4dp"
+    android:focusable="false"
+    android:layout_margin="8dp"
     android:orientation="vertical"
     app:cardCornerRadius="15dp"
+    app:strokeColor="@color/color_secondary"
     app:strokeWidth="1dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="20dp">
-
-
+        android:paddingStart="16dp"
+        android:paddingTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:paddingEnd="0dp">
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideLineV5"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.5" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideLineV1"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.1" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideLineV9"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.9" />
-
-        <LinearLayout
-            android:id="@+id/producto_botones"
-            android:layout_width="match_parent"
+            android:id="@+id/guideH70"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.7"/>
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/cart_item_mas"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/add"
+            app:icon="@drawable/ic_baseline_plus_one_24"
+            app:iconGravity="textStart"
+            android:textColor="@color/color_primary_variant"
+            app:iconTint="@color/color_primary_variant"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cart_tv_desc"
+            app:layout_constraintVertical_bias="0.8" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/cart_item_mas"
-                style="@style/Widget.MaterialComponents.Button"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="3dp"
-                android:layout_marginTop="5dp"
-                android:layout_weight="1"
-                android:text="+1"
-                app:cornerRadius="5dp" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/cart_item_menos"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/restar"
+            app:icon="@drawable/ic_baseline_exposure_neg_1_24"
+            app:iconGravity="textStart"
+            android:textColor="@color/color_error"
+            app:iconTint="@color/color_error"
+            app:layout_constraintBottom_toBottomOf="@id/cart_item_mas"
+            app:layout_constraintStart_toEndOf="@id/cart_item_mas"
+            app:layout_constraintTop_toTopOf="@id/cart_item_mas" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/cart_item_menos"
-                style="@style/Widget.MaterialComponents.Button"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="3dp"
-                android:layout_marginTop="5dp"
-                android:layout_weight="1"
-                android:text="-1"
-                app:cornerRadius="5dp" />
-
-        </LinearLayout>
-
-
-        <LinearLayout
+        <TextView
+            android:id="@+id/cart_tv_cantidad"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toTopOf="@id/producto_botones"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:textStyle="bold"
+            android:text="@string/cantidad_cart"
+            app:layout_constraintBottom_toBottomOf="@id/cart_tv_desc"
+            app:layout_constraintBottom_toTopOf="@id/cart_item_mas"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="14dp"
+            android:layout_marginBottom="6dp"
+            android:background="@color/color_background"
+            app:layout_constraintBottom_toTopOf="@id/cart_tv_cantidad"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            app:layout_constraintStart_toStartOf="parent" />
 
-            <LinearLayout
-                android:id="@+id/title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+        <TextView
+            android:id="@+id/cart_tv_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:textAppearance="?attr/textAppearanceBody2"
+            android:textColor="@color/color_secondary"
+            app:layout_constraintBottom_toTopOf="@id/divider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/cart_tv_name"
+            app:layout_constraintTop_toBottomOf="@id/cart_tv_name" />
 
-                <TextView
-                    android:id="@+id/cart_tv_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:text="NOMBRE"
-                    android:textAppearance="?attr/textAppearanceHeadline6"
-                    android:textColor="@color/color_on_surface" />
+        <TextView
+            android:id="@+id/cart_tv_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:textAllCaps="true"
+            android:textAppearance="?attr/textAppearanceHeadline5"
+            android:textColor="@color/color_on_surface"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/guideH70"
+            app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/cart_tv_clases"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="CLASES"
-                    android:textAppearance="?attr/textAppearanceBody2"
-                    android:textColor="@color/color_secondary" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:id="@+id/cart_tv_cantidad"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Cantidad"/>
-                <TextView
-                    android:id="@+id/cart_tv_precio"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:text="Precio €"/>
-
-            </LinearLayout>
+        <TextView
+            android:id="@+id/cart_tv_precio"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:gravity="center"
+            android:text="@string/precio_cart"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:textAppearance="?attr/textAppearanceCaption"
+            android:textColor="@color/color_secondary"
+            app:layout_constraintBottom_toBottomOf="@id/cart_tv_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/guideH70"
+            app:layout_constraintTop_toTopOf="@id/cart_tv_name" />
 
 
-        </LinearLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </com.google.android.material.card.MaterialCardView>

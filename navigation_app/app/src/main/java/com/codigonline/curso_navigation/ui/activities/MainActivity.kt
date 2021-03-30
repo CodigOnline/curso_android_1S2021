@@ -2,6 +2,7 @@ package com.codigonline.curso_navigation.ui.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
@@ -48,7 +49,7 @@ class MainActivity : AppCompatActivity(), MainListener, BottomNavListener {
     override fun updateBadge(cantidad: Int) {
         val badge = binding.bottomNavView.getOrCreateBadge(R.id.opinionesFragment)
         badge.number = cantidad
-        badge.isVisible = cantidad>0
+        badge.isVisible = cantidad > 0
     }
 
 
