@@ -21,6 +21,7 @@ import kotlinx.coroutines.withContext
 class MainActivity : AppCompatActivity(), MainListener, BottomNavListener {
 
     private lateinit var binding: ActivityMainBinding
+    private val TAG = "MAIN_ACTIVITY"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +32,8 @@ class MainActivity : AppCompatActivity(), MainListener, BottomNavListener {
         lifecycleScope.launch {
             withContext(Dispatchers.IO) {
                 App.obtenerDB().mainDao().init()
+                val users = App.obtenerDB().usuarioDao().findAllWithCompraProjected()
+                Log.d(TAG,users.toString())
             }
         }
 
