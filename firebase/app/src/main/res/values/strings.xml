@@ -10,6 +10,21 @@
     <string name="field_null">Revisa los campos, no pueden estar nullos</string>
     <string name="password_weak">La contraseña es muy debil, debes poner 6 caracteres</string>
     <string name="fail_register">No se ha podido registrar el usuario de forma correcta</string>
+    <string name="error_change_username">No se ha podido actualizar el nombre del usuario</string>
+    <string name="error_add_user_collection">No se ha podido registrar el nuevo usuario en la collection</string>
+
+
+
+
+    <string name="title_activity_main">MainActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Perfil</string>
+    <string name="menu_home">Home</string>
+    <string name="action_close">Cerrerar sesión</string>
 
 
 </resources>

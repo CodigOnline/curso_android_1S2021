@@ -4,14 +4,19 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import com.codigonline.firebase.App
 import com.codigonline.firebase.R
 import com.codigonline.firebase.databinding.ActivityRegistroBinding
+import com.codigonline.firebase.entities.Usuario
+import com.codigonline.firebase.utils.Constantes
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException
+import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import java.util.*
 
 
 class RegistroActivity : AppCompatActivity() {
@@ -74,7 +79,54 @@ class RegistroActivity : AppCompatActivity() {
             auth.createUserWithEmailAndPassword(email.getString(), password1.getString())
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
-                        finish()
+                        auth.currentUser.apply {
+                            val profile = UserProfileChangeRequest.Builder()
+                                .setDisplayName(
+                                    binding.registroTieName.getString()
+                                )
+                                .build()
+                            updateProfile(profile).addOnCompleteListener { taskChangeProfile ->
+                                if (taskChangeProfile.isSuccessful) {
+                                    //AMPLAIR LOS DATOS DEL USER
+                                    App.getFirestore()
+                                        .collection(Constantes.USUARIOS)
+                                        .document(auth.currentUser.uid)
+                                        .set(
+                                            Usuario(
+                                                binding.registroTieName.getString(),
+                                                binding.registroTieMail.getString(),
+                                                18,
+                                                Date(System.currentTimeMillis()),
+                                                Date(System.currentTimeMillis())
+                                            )
+                                        )
+                                        .addOnCompleteListener { taskNewUser ->
+                                            if (taskNewUser.isSuccessful) {
+                                                finish()
+                                            } else {
+                                                Snackbar.make(
+                                                    view,
+                                                    getString(R.string.error_add_user_collection),
+                                                    Snackbar.LENGTH_LONG
+                                                )
+                                                    .show()
+                                            }
+                                        }
+
+
+                                } else {
+                                    Snackbar.make(
+                                        view,
+                                        getString(R.string.error_change_username),
+                                        Snackbar.LENGTH_LONG
+                                    )
+                                        .show()
+                                }
+
+
+                            }
+
+                        }
                     } else {
                         when (task.exception) {
                             is FirebaseAuthWeakPasswordException -> {
@@ -98,3 +150,4 @@ class RegistroActivity : AppCompatActivity() {
         return text.toString()
     }
 }
+
