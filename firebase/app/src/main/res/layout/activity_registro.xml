@@ -135,11 +135,11 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/registro_tie_mail"
             android:layout_width="match_parent"
-            android:text="alortegama@gmail.com"
             android:layout_height="match_parent"
             android:imeOptions="actionNext"
             android:inputType="textEmailAddress"
-            android:nextFocusDown="@id/registro_tie_pass1" />
+            android:nextFocusDown="@id/registro_tie_pass1"
+            android:text="alortegama@gmail.com" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -164,9 +164,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:imeOptions="actionNext"
-            android:text="Álvaro Ortega Marmol"
             android:inputType="textCapWords"
-            android:nextFocusDown="@id/registro_tie_mail" />
+            android:nextFocusDown="@id/registro_tie_mail"
+            android:text="Álvaro Ortega Marmol" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <de.hdodenhof.circleimageview.CircleImageView
@@ -182,5 +182,10 @@
         app:layout_constraintStart_toEndOf="@id/registro_guideV1"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <include
+        layout="@layout/my_progress_bar"
+        android:id="@+id/registro_progress_bar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

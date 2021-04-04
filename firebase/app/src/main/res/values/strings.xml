@@ -12,6 +12,7 @@
     <string name="fail_register">No se ha podido registrar el usuario de forma correcta</string>
     <string name="error_change_username">No se ha podido actualizar el nombre del usuario</string>
     <string name="error_add_user_collection">No se ha podido registrar el nuevo usuario en la collection</string>
+    <string name="email_in_use">El email ya se está utilizando en otra cuenta</string>
 
 
 
