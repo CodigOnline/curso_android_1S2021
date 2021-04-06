@@ -10,5 +10,4 @@
         android:background="@color/white"
         android:backgroundTint="@color/white"
         android:visibility="gone"/>
-
 </FrameLayout>

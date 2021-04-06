@@ -15,8 +15,6 @@
     <string name="email_in_use">El email ya se está utilizando en otra cuenta</string>
 
 
-
-
     <string name="title_activity_main">MainActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -26,6 +24,9 @@
     <string name="action_settings">Perfil</string>
     <string name="menu_home">Home</string>
     <string name="action_close">Cerrerar sesión</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="user_profile">Perfil de usuario</string>
 
 
 </resources>

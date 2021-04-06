@@ -41,33 +41,33 @@ class RegistroActivity : AppCompatActivity() {
             val password2 = binding.registroTiePass2
             if (nombre.getString().isNullOrBlank()) {
                 Snackbar.make(
-                        view,
-                        getString(R.string.field_null),
-                        Snackbar.LENGTH_SHORT
+                    view,
+                    getString(R.string.field_null),
+                    Snackbar.LENGTH_SHORT
                 ).show()
                 return@setOnClickListener
             }
             if (email.getString().isNullOrBlank()) {
                 Snackbar.make(
-                        view,
-                        getString(R.string.field_null),
-                        Snackbar.LENGTH_SHORT
+                    view,
+                    getString(R.string.field_null),
+                    Snackbar.LENGTH_SHORT
                 ).show()
                 return@setOnClickListener
             }
             if (password1.getString().isNullOrBlank()) {
                 Snackbar.make(
-                        view,
-                        getString(R.string.field_null),
-                        Snackbar.LENGTH_SHORT
+                    view,
+                    getString(R.string.field_null),
+                    Snackbar.LENGTH_SHORT
                 ).show()
                 return@setOnClickListener
             }
             if (password2.getString().isNullOrBlank()) {
                 Snackbar.make(
-                        view,
-                        getString(R.string.field_null),
-                        Snackbar.LENGTH_SHORT
+                    view,
+                    getString(R.string.field_null),
+                    Snackbar.LENGTH_SHORT
                 ).show()
                 return@setOnClickListener
             }
@@ -78,52 +78,53 @@ class RegistroActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
             val usuario = Usuario(
-                    binding.registroTieName.getString(),
-                    binding.registroTieMail.getString(),
-                    18,
-                    Date(System.currentTimeMillis()),
-                    Date(System.currentTimeMillis())
+                binding.registroTieName.getString(),
+                binding.registroTieMail.getString(),
+                18,
+                "",
+                Date(System.currentTimeMillis()),
+                Date(System.currentTimeMillis())
             )
 
-            binding.registroProgressBar.myProgressBar.visibility= View.VISIBLE
+            binding.registroProgressBar.myProgressBar.visibility = View.VISIBLE
             model.registro(usuario, password1.getString()).observe(this, { exception ->
                 if (exception == null) {
                     finish()
                 } else {
-                    binding.registroProgressBar.myProgressBar.visibility= View.GONE
+                    binding.registroProgressBar.myProgressBar.visibility = View.GONE
                     Log.d(TAG, exception.toString())
                     when (exception) {
                         is FirebaseAuthUserCollisionException -> {
                             Snackbar.make(
-                                    view,
-                                    getString(R.string.email_in_use),
-                                    Snackbar.LENGTH_LONG
+                                view,
+                                getString(R.string.email_in_use),
+                                Snackbar.LENGTH_LONG
                             )
-                                    .show()
+                                .show()
                         }
                         is FirebaseFirestoreException -> {
                             Snackbar.make(
-                                    view,
-                                    getString(R.string.error_add_user_collection),
-                                    Snackbar.LENGTH_LONG
+                                view,
+                                getString(R.string.error_add_user_collection),
+                                Snackbar.LENGTH_LONG
                             )
-                                    .show()
+                                .show()
                         }
                         is FirebaseAuthInvalidUserException -> {
                             Snackbar.make(
-                                    view,
-                                    getString(R.string.error_change_username),
-                                    Snackbar.LENGTH_LONG
+                                view,
+                                getString(R.string.error_change_username),
+                                Snackbar.LENGTH_LONG
                             )
-                                    .show()
+                                .show()
                         }
                         is FirebaseAuthWeakPasswordException -> {
                             Snackbar.make(view, R.string.password_weak, Snackbar.LENGTH_LONG)
-                                    .show()
+                                .show()
                         }
                         else -> {
                             Snackbar.make(view, R.string.fail_register, Snackbar.LENGTH_LONG)
-                                    .show()
+                                .show()
                         }
                     }
                 }

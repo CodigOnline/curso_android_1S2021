@@ -11,4 +11,10 @@
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" />
 
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.codigonline.firebase.ui.ProfileFragment"
+        android:label="@string/user_profile"
+        tools:layout="@layout/fragment_profile" />
+
 </navigation>
