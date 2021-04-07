@@ -11,6 +11,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.swiperefreshlayout.widget.CircularProgressDrawable
+import com.bumptech.glide.Glide
 import com.codigonline.firebase.App
 import com.codigonline.firebase.R
 import com.codigonline.firebase.databinding.FragmentProfileBinding
@@ -18,6 +20,7 @@ import com.codigonline.firebase.entities.Usuario
 import com.codigonline.firebase.utils.Constantes
 import com.codigonline.firebase.viewModel.UsuarioViewModel
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.UserProfileChangeRequest
 
 
 class ProfileFragment : Fragment() {
@@ -34,8 +37,8 @@ class ProfileFragment : Fragment() {
 
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
         val binding = _binding!!
@@ -43,6 +46,22 @@ class ProfileFragment : Fragment() {
         binding.progressLayout.myProgressBar.visibility = View.VISIBLE
         model.findOneById(App.getAuth().currentUser.uid).observe(viewLifecycleOwner, {
             usuario = it
+            if (!usuario.imageUrl.isNullOrBlank()) {
+
+                val circularProgress = CircularProgressDrawable(requireContext())
+                circularProgress.strokeWidth = 5f
+                circularProgress.centerRadius = 30f
+                circularProgress.start()
+
+                Glide
+                        .with(this)
+                        .load(usuario.imageUrl)
+                        .fitCenter()
+                        .placeholder(circularProgress)
+                        .into(binding.imageProfile)
+
+
+            }
             binding.tieEdad.setText(it.edad.toString())
             binding.tieNombre.setText(it.nombre)
             binding.tieEmail.setText(it.email)
@@ -64,29 +83,41 @@ class ProfileFragment : Fragment() {
         if (uriFoto != null) {
             val storage = App.getStorage()
             val reference =
-                storage.reference.child(Constantes.IMAGES + "/" + App.getAuth().currentUser.uid + "/image_profile")
+                    storage.reference.child(Constantes.IMAGES + "/" + App.getAuth().currentUser.uid + "/image_profile")
             reference.putFile(uriFoto!!)
-                .addOnProgressListener {
-                    val progress = (100*it.bytesTransferred/it.totalByteCount).toDouble()
-                    Log.d(TAG, progress.toString())
-                }
-                .addOnSuccessListener {
-                    it.storage.downloadUrl.addOnSuccessListener { url ->
-                        Log.d(TAG, url.toString())
-                        usuario.imageUrl = url.toString()
-                        //GUARDAR NUEVAMENTE EL USUARIO EN FIRESTORE
-
+                    .addOnProgressListener {
+                        val progress = (100 * it.bytesTransferred / it.totalByteCount).toDouble()
+                        Log.d(TAG, progress.toString())
                     }
-                }
-                .addOnFailureListener {
-                    Snackbar.make(
-                        _binding!!.root,
-                        "No se ha podido subir la imagen a Storage",
-                        Snackbar.LENGTH_SHORT
-                    ).show()
-                }
+                    .addOnSuccessListener {
+                        it.storage.downloadUrl.addOnSuccessListener { url ->
+                            Log.d(TAG, url.toString())
+                            usuario.imageUrl = url.toString()
+                            saveUser()
 
+                        }
+                    }
+                    .addOnFailureListener {
+                        Snackbar.make(
+                                _binding!!.root,
+                                "No se ha podido subir la imagen a Storage",
+                                Snackbar.LENGTH_SHORT
+                        ).show()
+                    }
+
+        } else {
+            saveUser()
         }
+    }
+
+    fun saveUser() {
+        model.updateUsuario(usuario).observe(viewLifecycleOwner, {
+            if (it) {
+                Snackbar.make(_binding!!.root, "Usuario Actualizado", Snackbar.LENGTH_SHORT).show()
+            } else {
+                Snackbar.make(_binding!!.root, "ERROR: al actualizar", Snackbar.LENGTH_SHORT).show()
+            }
+        })
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

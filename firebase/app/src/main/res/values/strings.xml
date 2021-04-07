@@ -22,11 +22,26 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Perfil</string>
+    <string name="action_search">Buscar</string>
     <string name="menu_home">Home</string>
     <string name="action_close">Cerrerar sesión</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="user_profile">Perfil de usuario</string>
+
+
+    <string name="tittle_productos">Productos</string>
+    <string name="tittle_cart">Carrito</string>
+    <string name="eliminar">Eliminar</string>
+    <string name="add_nuevo_producto">Añadir nuevo producto</string>
+    <string name="pagar">PAGAR</string>
+
+    <string name="total_cart">Total: %1$.2f €</string>
+    <string name="clases_cart">Clases: %1$d</string>
+    <string name="comprar_product">Comprar: %1$.2f €</string>
+    <string name="cantidad_cart">En el carrito: %1$d veces</string>
+    <string name="precio_cart">%1$.2f €</string>
+    <string name="search">Búsqueda</string>
 
 
 </resources>
