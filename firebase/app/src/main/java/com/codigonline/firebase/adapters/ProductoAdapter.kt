@@ -1,73 +1,69 @@
-package com.codigonline.firebase.adapters
-
-
-import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.codigonline.firebase.R
 import com.codigonline.firebase.databinding.ItemProductoBinding
 import com.codigonline.firebase.entities.Producto
-import java.util.*
 
+class ProductoAdapter : RecyclerView.Adapter<ProductoAdapter.ViewHolder>() {
 
-class ProductosRecyclerViewAdapter(var productos: MutableList<Producto>, val context: Context) :
-        RecyclerView.Adapter<ProductosRecyclerViewAdapter.ViewHolder>() {
+    val lista = mutableListOf<Producto>()
+    private lateinit var originalList: List<Producto>
 
-    val originalList = productos
+    fun ProductoAdapter(lista: List<Producto>) {
+        this.lista.addAll(lista)
+        originalList = lista
+    }
 
-    fun filter(name: String) {
-        if (name.isBlank()) {
-            productos = originalList
-        } else {
-            val filter = originalList.filter { producto -> producto.nombre.toLowerCase(Locale.ROOT).contains(name.toLowerCase(Locale.ROOT)) }
-            productos = filter as MutableList<Producto>
-        }
+    fun filter(nombre: String) {
+        /*val filter = mutableListOf<Producto>()
+        for (producto in originalList) {
+            if (producto.nombre.toLowerCase().contains(nombre.toLowerCase()))
+                filter.add(producto)
+        }*/
+        val filter = originalList.filter { producto -> producto.nombre.toLowerCase().contains(nombre.toLowerCase()) }
+
+        lista.clear()
+        lista.addAll(filter)
         notifyDataSetChanged()
+    }
+
+    fun removeItem(producto:Producto){
+        val pos = originalList.indexOf(producto)
+        lista.remove(producto)
+        notifyItemRemoved(pos)
+        //CONNECTAR A LA BD Y ELIMINAR
 
     }
 
 
-    class ViewHolder private constructor(
-            val binding: ItemProductoBinding
-    ) : RecyclerView.ViewHolder(binding.root) {
-        fun rellenarDatos(producto: Producto, context: Context) {
-            binding.productoNombre.text = producto.nombre
-            binding.productoClases.text = context.getString(R.string.clases_cart, producto.clases)
-            binding.productoDescipcion.text = producto.descripcion
-            binding.productoPrecio.text = context.getString(R.string.precio_cart, producto.precio)
+    class ViewHolder(val binding: ItemProductoBinding) : RecyclerView.ViewHolder(binding.root) {
 
+        fun enlazar(producto: Producto) {
+
+            binding.productoClases.text = producto.clases.toString()
+            binding.productoNombre.text = producto.nombre
+            binding.productoDescipcion.text = producto.descripcion
+            binding.productoPrecio.text = producto.precio.toString()
         }
 
         companion object {
-            fun newInstance(
-                    parent: ViewGroup,
-                    adapterProductos: ProductosRecyclerViewAdapter
-            ): ViewHolder {
-                val layoutInflater = LayoutInflater.from(parent.context)
-                val binding = ItemProductoBinding.inflate(layoutInflater, parent, false)
+            fun crear(parent: ViewGroup): ViewHolder {
+                val inflater = LayoutInflater.from(parent.context)
+                val binding = ItemProductoBinding.inflate(inflater, parent, false)
                 return ViewHolder(binding)
             }
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-            ViewHolder.newInstance(parent, this)
-
-    /* override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):ViewHolder{
-         val layoutInflater = LayoutInflater.from(parent.context)
-         val binding = ItemProductoRecyclerViewBinding.inflate(layoutInflater, parent, false)
-         return ViewHolder(binding)
-     }*/
-    override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) =
-            viewHolder.rellenarDatos(productos[position], context)
-
-    override fun getItemCount() = productos.size
-
-/*    override fun getItemCount(): Int {
-        return productos.size
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        return ViewHolder.crear(parent)
     }
-    */
 
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.enlazar(lista[position])
+    }
+
+    override fun getItemCount(): Int {
+        return lista.size
+    }
 }

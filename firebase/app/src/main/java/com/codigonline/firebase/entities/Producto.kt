@@ -11,6 +11,8 @@ data class Producto constructor(val nombre: String, val descripcion: String, val
 
     constructor() : this("", "", 0.0, 0, Date(), Date())
 
+
+
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (javaClass != other?.javaClass) return false
