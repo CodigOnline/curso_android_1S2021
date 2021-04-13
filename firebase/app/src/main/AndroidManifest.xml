@@ -10,12 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Base.MyTheme">
         <activity
-            android:name=".ui.MainActivity"
+            android:name=".ui.activities.MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/Base.MyTheme.NoActionBar"></activity>
-        <activity android:name=".ui.RegistroActivity" />
-        <activity android:name=".ui.ProductoActivitiy" />
-        <activity android:name=".ui.LoginActivity">
+        <activity android:name=".ui.activities.RegistroActivity" />
+        <activity android:name=".ui.activities.ProductoActivitiy" />
+        <activity android:name=".ui.activities.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

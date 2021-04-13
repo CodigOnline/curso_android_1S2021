@@ -42,6 +42,7 @@
     <string name="cantidad_cart">En el carrito: %1$d veces</string>
     <string name="precio_cart">%1$.2f €</string>
     <string name="search">Búsqueda</string>
+    <string name="like">Me gusta</string>
 
 
 </resources>

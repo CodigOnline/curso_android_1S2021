@@ -1,4 +1,4 @@
-package com.codigonline.firebase.ui
+package com.codigonline.firebase.ui.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity

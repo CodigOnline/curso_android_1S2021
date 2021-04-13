@@ -1,23 +1,18 @@
-package com.codigonline.firebase.ui
+package com.codigonline.firebase.ui.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.Toast
 import androidx.activity.viewModels
-import com.codigonline.firebase.App
 import com.codigonline.firebase.R
 import com.codigonline.firebase.databinding.ActivityRegistroBinding
 import com.codigonline.firebase.entities.Usuario
-import com.codigonline.firebase.utils.Constantes
 import com.codigonline.firebase.viewModel.UsuarioViewModel
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.*
-import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestoreException
-import com.google.firebase.ktx.Firebase
 import java.util.*
 
 

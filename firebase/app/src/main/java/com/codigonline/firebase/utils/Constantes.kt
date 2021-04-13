@@ -5,5 +5,6 @@ class Constantes {
         val USUARIOS = "users"
         val PRODUCTOS = "productos"
         val IMAGES = "images"
+        val FAV = "favs"
     }
 }

@@ -1,4 +1,4 @@
-package com.codigonline.firebase.ui
+package com.codigonline.firebase.ui.fragments
 
 import android.app.Activity.RESULT_OK
 import android.content.Intent
@@ -14,13 +14,11 @@ import androidx.fragment.app.viewModels
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.bumptech.glide.Glide
 import com.codigonline.firebase.App
-import com.codigonline.firebase.R
 import com.codigonline.firebase.databinding.FragmentProfileBinding
 import com.codigonline.firebase.entities.Usuario
 import com.codigonline.firebase.utils.Constantes
 import com.codigonline.firebase.viewModel.UsuarioViewModel
 import com.google.android.material.snackbar.Snackbar
-import com.google.firebase.auth.UserProfileChangeRequest
 
 
 class ProfileFragment : Fragment() {

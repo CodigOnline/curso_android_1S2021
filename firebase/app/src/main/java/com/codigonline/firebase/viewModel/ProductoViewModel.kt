@@ -1,5 +1,6 @@
 package com.codigonline.firebase.viewModel
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -9,6 +10,7 @@ import com.codigonline.firebase.utils.Constantes
 import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.firestore.ktx.toObjects
+import java.util.stream.Collectors
 
 class ProductoViewModel : ViewModel() {
 
@@ -26,15 +28,37 @@ class ProductoViewModel : ViewModel() {
     private fun loadProductos() {
         firestore.collection(Constantes.PRODUCTOS)
             .orderBy("precio", Query.Direction.ASCENDING)
-            .orderBy("nombre",Query.Direction.ASCENDING)
+            .orderBy("nombre", Query.Direction.ASCENDING)
             .get()
             .addOnSuccessListener { documentos ->
-                /*val list = mutableListOf<Producto>()
-                for (document in documentos){
+                var list = mutableListOf<Producto>()
+                for (document in documentos) {
                     val producto = document.toObject<Producto>()
-                }*/
-                val lista = documentos.toObjects<Producto>()
-                _productos.value = lista
+                    producto.id = document.id
+                    list.add(producto)
+                }
+
+                firestore.collection(Constantes.USUARIOS).document(App.getAuth().currentUser.uid)
+                    .get().addOnSuccessListener { usuario ->
+                        val favs = usuario.data?.get(Constantes.FAV)
+                        if (favs != null) {
+                            for (fav in favs as ArrayList<String>) {
+                                list = list.stream().map { p ->
+                                    if (p.id == fav) {
+                                        p.fav = true
+                                    }; p
+                                }.collect(
+                                    Collectors.toList()
+                                )
+                            }
+                            _productos.value = list
+                        } else {
+                            _productos.value = list
+                        }
+
+                    }
+
+
             }
     }
 

@@ -7,14 +7,19 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.codigonline.firebase.ui.ui.home.HomeFragment"
+        android:name="com.codigonline.firebase.ui.fragments.ProductoFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.codigonline.firebase.ui.ProfileFragment"
+        android:name="com.codigonline.firebase.ui.fragments.ProfileFragment"
         android:label="@string/user_profile"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/favsFragment"
+        android:name="com.codigonline.firebase.ui.fragments.FavsFragment"
+        android:label="fragment_favs"
+        tools:layout="@layout/fragment_favs" />
 
 </navigation>
