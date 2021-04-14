@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">WebService</string>
+    <string name="title_opiniones">Opiniones</string>
+    <string name="title_articulos">Articulos</string>
+    <string name="title_perfil">Perfil</string>
+</resources>

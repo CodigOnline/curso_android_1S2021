@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_opiniones"
+        android:icon="@drawable/ic_baseline_topic_24"
+        android:title="@string/title_opiniones" />
+
+    <item
+        android:id="@+id/navigation_articulos"
+        android:icon="@drawable/ic_baseline_article_24"
+        android:title="@string/title_articulos" />
+
+    <item
+        android:id="@+id/navigation_perfil"
+        android:icon="@drawable/ic_baseline_person_24"
+        android:title="@string/title_perfil" />
+
+</menu>

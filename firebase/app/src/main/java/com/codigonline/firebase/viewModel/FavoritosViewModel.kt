@@ -36,19 +36,13 @@ class FavoritosViewModel : ViewModel() {
             .get().addOnSuccessListener { usuario ->
                 val favs = usuario.data?.get(Constantes.FAV)
                 if (favs != null) {
-                    viewModelScope.launch {
-                        withContext(Dispatchers.IO){
-                            for (fav in favs as ArrayList<String>) {
-                                firestore.collection(Constantes.PRODUCTOS).document(fav).get()
-                                    .addOnSuccessListener {
-                                        liveData.value = it.toObject<Producto>()!!
-                                    }
-                                delay(2000)
+
+                    for (fav in favs as ArrayList<String>) {
+                        firestore.collection(Constantes.PRODUCTOS).document(fav).get()
+                            .addOnSuccessListener {
+                                liveData.value = it.toObject<Producto>()!!
                             }
-                        }
                     }
-
-
                 } else {
                     liveData.value = null
                 }

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_opiniones">
+
+    <fragment
+        android:id="@+id/navigation_opiniones"
+        android:name="com.codigonline.webservice.ui.opiniones.OpinionesFragment"
+        android:label="@string/title_opiniones"
+        tools:layout="@layout/fragment_opiniones" />
+
+    <fragment
+        android:id="@+id/navigation_articulos"
+        android:name="com.codigonline.webservice.ui.articulos.ArticulosFragment"
+        android:label="@string/title_articulos"
+        tools:layout="@layout/fragment_articulos" />
+
+    <fragment
+        android:id="@+id/navigation_perfil"
+        android:name="com.codigonline.webservice.ui.perfil.PerfilFragment"
+        android:label="@string/title_perfil"
+        tools:layout="@layout/fragment_perfil" />
+</navigation>
