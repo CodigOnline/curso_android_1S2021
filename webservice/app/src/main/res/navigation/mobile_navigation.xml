@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_opiniones">
+    app:startDestination="@+id/loginFragment">
 
     <fragment
         android:id="@+id/navigation_opiniones"
@@ -22,4 +22,13 @@
         android:name="com.codigonline.webservice.ui.perfil.PerfilFragment"
         android:label="@string/title_perfil"
         tools:layout="@layout/fragment_perfil" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.codigonline.webservice.ui.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/loginFragment_to_opiniones"
+            app:destination="@id/navigation_opiniones" />
+    </fragment>
 </navigation>

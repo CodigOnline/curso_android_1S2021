@@ -3,4 +3,6 @@
     <string name="title_opiniones">Opiniones</string>
     <string name="title_articulos">Articulos</string>
     <string name="title_perfil">Perfil</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
