@@ -25,7 +25,7 @@ class PerfilViewModel : ViewModel() {
             withContext(Dispatchers.IO) {
                 val id = App.getUsuario().id
                 val token = App.getToken()
-                service.updateUserById(token!!, id, usuario)
+                service.updateById(token!!, id, usuario)
                     .enqueue(object : Callback<Usuario.Get> {
                         override fun onResponse(
                             call: Call<Usuario.Get>,

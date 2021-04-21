@@ -7,14 +7,20 @@ import retrofit2.http.*
 interface UsuarioService {
 
     @GET("usuarios/{id}")
-    fun getUserById(@Path("id") id: Int): Call<Usuario.Get>
+    fun getById(@Path("id") id: Int): Call<Usuario.Get>
 
     @PUT("usuarios/{id}")
-    fun updateUserById(
-        @Header("Authorization") token: String,
-        @Path("id") id: Int,
-        @Body usuario: Usuario.Update
+    fun updateById(
+            @Header("Authorization") token: String,
+            @Path("id") id: Int,
+            @Body usuario: Usuario.Update
     ): Call<Usuario.Get>
+
+    @DELETE("usuarios/{id}")
+    fun deleteById(
+            @Header("Authorization") token: String,
+            @Path("id") id: Int
+    ): Call<Usuario.Delete>
 
 
 }

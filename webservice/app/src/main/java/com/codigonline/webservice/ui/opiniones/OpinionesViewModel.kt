@@ -37,6 +37,7 @@ class OpinionesViewModel : ViewModel() {
                     override fun onResponse(call: Call<Opiniones>, response: Response<Opiniones>) {
                         val body = response.body()
                         Log.d(TAG, body!!.toString());
+                        opiniones.postValue(response.body())
                     }
 
                     override fun onFailure(call: Call<Opiniones>, t: Throwable) {
